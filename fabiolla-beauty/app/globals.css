@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --cream: #FFF8F2;
+  --blush: #F8D7DA;
+  --rose-gold: #B76E79;
+  --gold: #D4AF37;
+  --charcoal: #2C2C2C;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #fff;
+  color: #2C2C2C;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container-lux {
+  @apply max-w-7xl mx-auto px-6 lg:px-8;
+}
+
+/* Day Picker styling */
+.rdp {
+  --rdp-cell-size: 44px;
+  --rdp-accent-color: #B76E79;
+  --rdp-background-color: #FFF0F3;
+  margin: 0;
+}
+.rdp-day_selected, .rdp-day_selected:focus, .rdp-day_selected:active, .rdp-day_selected:hover {
+  background-color: #B76E79 !important;
+  color: white;
+}
+.rdp-button:hover:not([disabled]):not(.rdp-day_selected) {
+  background-color: #FFF0F3;
+}
+.rdp-day_today:not(.rdp-day_selected) {
+  font-weight: 700;
+  color: #B76E79;
+}
+
+/* Lux utilities */
+.glass {
+  backdrop-filter: blur(16px);
+  background: rgba(255,255,255,0.78);
+}
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -150%;
+  width: 150%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.45), transparent);
+  animation: shimmer 2.8s infinite;
+}
+@keyframes shimmer {
+  100% { left: 150%; }
+}
