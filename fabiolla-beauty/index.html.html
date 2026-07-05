@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fabiolla Beauty Parlour | Luxury Beauty & Wellness</title>
+<style>
+:root{--cream:#FFF8F2;--blush:#F8D7DA;--rose:#B76E79;--gold:#D4AF37;--char:#2C2C2C;--grey:#F5F5F5}
+*{box-sizing:border-box;margin:0;padding:0} html{scroll-behavior:smooth}
+body{font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;color:var(--char);background:#fff;line-height:1.6}
+h1,h2,h3,.display{font-family: Georgia, 'Times New Roman', 'Playfair Display', serif;font-weight:600}
+.container{max-width:1120px;margin:0 auto;padding:0 24px}
+a{color:inherit;text-decoration:none}
+.btn{border:none;cursor:pointer;border-radius:999px;padding:14px 26px;font-weight:500;font-family:inherit;transition:.2s}
+.btn-rose{background:var(--rose);color:#fff;box-shadow:0 12px 40px -12px rgba(183,110,121,.45)}
+.btn-rose:hover{transform:translateY(-1px);opacity:.96}
+.btn-ghost{background:#fff;border:1px solid #e4dcd6}
+.btn-dark{background:var(--char);color:#fff}
+.badge{color:var(--rose);text-transform:uppercase;letter-spacing:.18em;font-size:11px}
+
+/* nav */
+.nav{position:fixed;inset:0 0 auto 0;z-index:40;background:rgba(255,255,255,.82);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,.06)}
+.nav-inner{height:74px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:10px;font-weight:600}
+.logo-mark{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#B76E79,#D4AF37);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif}
+.logo small{display:block;font-size:9px;letter-spacing:.18em;color:var(--rose);font-weight:500;margin-top:-2px}
+.nav-links{display:none;gap:28px;font-size:14px;color:#4a4a4a}
+@media(min-width:980px){.nav-links{display:flex}}
+.menu-btn{display:block;background:none;border:none;font-size:24px}
+@media(min-width:980px){.menu-btn{display:none}}
+
+/* hero */
+.hero{background:linear-gradient(105deg, #FFF8F2 55%, #fff7f6 100%);padding:130px 0 90px;position:relative;overflow:hidden}
+.hero h1{font-size:52px;line-height:1.05;margin:12px 0 18px}
+@media(min-width:800px){.hero h1{font-size:68px}}
+.hero p.lead{color:#5b5b5b;max-width:540px;font-size:17px}
+.orb{position:absolute;border-radius:50%;filter:blur(24px)}
+.orb1{right:10%;top:120px;width:110px;height:110px;background:#f8d7daaa}
+.orb2{right:18%;bottom:60px;width:78px;height:78px;background:rgba(183,110,121,.14)}
+.trust{display:flex;gap:34px;flex-wrap:wrap;margin-top:28px;color:#6a6a6a;font-size:13px}
+.trust b{display:block;font-family:'Playfair Display',serif;font-size:22px;color:var(--char);font-weight:600}
+
+/* sections */
+section{padding:84px 0}
+.sec-cream{background:var(--cream)}
+.sec-head{text-align:center;max-width:620px;margin:0 auto 44px}
+.sec-head h2{font-size:40px;margin-top:6px}
+@media(max-width:600px){.sec-head h2{font-size:32px}}
+
+/* cards */
+.grid{display:grid;gap:18px}
+.grid-3{grid-template-columns:repeat(auto-fit,minmax(270px,1fr))}
+.card{background:#fff;border:1px solid #eee7e3;border-radius:20px;padding:24px;box-shadow:0 10px 36px -18px rgba(0,0,0,.08)}
+.card:hover{box-shadow:0 18px 50px -16px rgba(183,110,121,.22);transform:translateY(-2px);transition:.25s}
+.icon{width:44px;height:44px;border-radius:12px;background:#fff0f3;display:flex;align-items:center;justify-content:center;color:var(--rose);margin-bottom:12px;font-size:20px}
+.card h3{font-size:22px;margin-bottom:6px}
+.muted{color:#666}
+.small{font-size:13px;color:#6d6d6d}
+.price-row{display:flex;justify-content:space-between;margin-top:14px;color:#555;font-size:13px}
+.card .book{width:100%;margin-top:14px;padding:11px;border-radius:999px;border:1px solid #e6c6cc;color:var(--rose);background:#fff;cursor:pointer;font-weight:500}
+.card .book:hover{background:#fff2f4}
+
+/* about */
+.about{display:grid;gap:40px;align-items:center}
+@media(min-width:900px){.about{grid-template-columns:1fr 1fr}}
+.about-photo{height:460px;border-radius:26px;background:linear-gradient(160deg,#f6d8d9,#f7e8c6);box-shadow:0 20px 60px -20px rgba(183,110,121,.28);position:relative}
+.about-photo span{position:absolute;right:-18px;bottom:-18px;background:#fff;border-radius:16px;padding:14px 18px;box-shadow:0 10px 30px rgba(0,0,0,.08);font-size:13px}
+.about-photo span b{color:var(--rose);font-family:'Playfair Display',serif;font-size:22px;display:block}
+
+/* features */
+.features{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.feat{background:#f9f6f4;border:1px solid #eee6e2;border-radius:16px;padding:18px}
+
+/* gallery */
+.gallery{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.gal{border-radius:18px;height:240px;background:linear-gradient(135deg,#f2d7da,#f6e5bd);display:flex;align-items:flex-end;padding:14px;color:#6a3a42;font-weight:500}
+
+/* testimonials */
+.testi{max-width:760px;margin:0 auto;background:#fff;border-radius:24px;box-shadow:0 20px 60px -20px rgba(183,110,121,.22);padding:38px;text-align:center}
+.avatar{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#f0c7cc,#e7cf8a);margin:0 auto 12px}
+.stars{color:var(--gold);letter-spacing:2px}
+
+/* contact */
+.contact-grid{display:grid;gap:36px}
+@media(min-width:900px){.contact-grid{grid-template-columns:1fr 1fr}}
+.map{border-radius:20px;background:#efe7e3;min-height:300px;display:flex;align-items:center;justify-content:center;color:#877}
+
+/* footer */
+footer{background:var(--char);color:#e8dfd9;padding:56px 0}
+footer a{color:#d5c9c2}
+.foot-grid{display:grid;gap:28px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.copy{color:#a89a92;font-size:12px;margin-top:18px}
+
+/* booking modal */
+.modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.52);backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center;z-index:80;padding:16px}
+.modal-bg.open{display:flex}
+.modal{background:#fff;width:100%;max-width:880px;border-radius:24px;overflow:hidden;box-shadow:0 30px 90px rgba(0,0,0,.28);max-height:90vh;display:flex;flex-direction:column}
+.modal-head{padding:18px 24px;border-bottom:1px solid #eee;background:#fff9f5;display:flex;justify-content:space-between;align-items:center}
+.modal-body{padding:24px;overflow:auto}
+.steps{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:#7b7b7b;border-bottom:1px solid #eee;padding:10px 24px}
+.step-dot{width:22px;height:22px;border-radius:50%;border:1px solid #d8c6c6;display:inline-flex;align-items:center;justify-content:center;font-size:11px;margin-right:6px}
+.step-dot.on{background:var(--rose);color:#fff;border-color:var(--rose)}
+.slot-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:16px}
+.slot{padding:11px;border:1px solid #e4d6d6;border-radius:12px;background:#fff;cursor:pointer;text-align:center;font-size:13px}
+.slot.sel{background:var(--rose);color:#fff;border-color:var(--rose)}
+.slot.booked{background:#f3f3f3;color:#aaa;cursor:not-allowed}
+.svc-grid{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));margin-top:14px;max-height:48vh;overflow:auto;padding-right:4px}
+.svc{border:1px solid #e6d8d8;border-radius:14px;padding:14px;cursor:pointer;text-align:left;background:#fff}
+.svc.sel{border-color:var(--rose);box-shadow:0 0 0 2px rgba(183,110,121,.15);background:#fff4f5}
+input,textarea{width:100%;padding:12px 14px;border:1px solid #dccccc;border-radius:12px;font-family:inherit;font-size:14px;margin-top:6px}
+input:focus,textarea:focus{outline:none;border-color:var(--rose)}
+label{font-size:13px;color:#444}
+.form-grid{display:grid;gap:14px}
+@media(min-width:640px){.form-grid.two{grid-template-columns:1fr 1fr}}
+.summary{background:#fff8f2;border-radius:16px;padding:18px;max-width:520px}
+.summary div{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid #eddede}
+.summary div:last-child{border-bottom:none}
+.fab-book{position:fixed;right:18px;bottom:18px;z-index:35;display:block}
+@media(min-width:640px){.fab-book{display:none}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="#home" class="logo">
+      <div class="logo-mark">F</div>
+      <div>Fabiolla<small>BEAUTY PARLOUR</small></div>
+    </a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div>
+      <button class="btn btn-rose" onclick="openBooking()">Book Appointment</button>
+      <button class="menu-btn" onclick="alert('Use the Book button – full menu on desktop')">☰</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header id="home" class="hero">
+  <div class="orb orb1"></div><div class="orb orb2"></div>
+  <div class="container">
+    <div class="badge">Karachi • Luxury Beauty & Wellness</div>
+    <h1 class="display">Experience Luxury<br>Beauty Like<br>Never Before</h1>
+    <p class="lead">Professional beauty treatments, expert stylists, premium products, and personalized care — all in one destination.</p>
+    <div style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap">
+      <button class="btn btn-rose" onclick="openBooking()">Book Appointment</button>
+      <a class="btn btn-ghost" href="#services">Explore Services</a>
+    </div>
+    <div class="trust">
+      <div><b>4.9★</b>1,200+ happy clients</div>
+      <div><b>Certified</b>Expert beauticians</div>
+      <div><b>Premium</b>Luxury products</div>
+    </div>
+  </div>
+</header>
+
+<!-- ABOUT -->
+<section id="about" class="sec-cream">
+  <div class="container about">
+    <div class="about-photo"><span>Est. 2018<br><b>Karachi</b></span></div>
+    <div>
+      <div class="badge">About Fabiolla</div>
+      <h2>Beauty with intention</h2>
+      <p class="muted" style="margin-top:12px">Fabiolla Beauty Parlour blends modern techniques with a warm, relaxing atmosphere. Every visit is tailored to you — from skin-first makeup to sculptural nails and restorative body treatments. Certified products, strict hygiene, and real attention to detail.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px;font-size:14px">
+        <div>• Certified beauty experts</div>
+        <div>• Luxury, skin-safe products</div>
+        <div>• Immaculate hygiene</div>
+        <div>• Personalized care plans</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <div class="sec-head">
+      <div class="badge">Our Services</div>
+      <h2>Curated Beauty, Perfected</h2>
+      <p class="muted" style="margin-top:8px">Hand-picked treatments using luxury products in a calm, hygienic studio.</p>
+    </div>
+    <div class="grid grid-3" id="serviceCards"></div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE -->
+<section class="sec-cream">
+  <div class="container">
+    <div class="sec-head">
+      <div class="badge">Why choose us</div>
+      <h2>Relax. You're in good hands.</h2>
+    </div>
+    <div class="features">
+      <div class="feat"><b>Certified Beauty Experts</b><div class="small">Trained, experienced, detail-obsessed.</div></div>
+      <div class="feat"><b>Luxury Products</b><div class="small">Skin-first, premium international brands.</div></div>
+      <div class="feat"><b>Hygienic Environment</b><div class="small">Sterilized tools, fresh linens, every time.</div></div>
+      <div class="feat"><b>Relaxing Atmosphere</b><div class="small">Calm lighting, soft music, pure me-time.</div></div>
+      <div class="feat"><b>Affordable Luxury</b><div class="small">High-end results at fair prices.</div></div>
+      <div class="feat"><b>Friendly Staff</b><div class="small">Warm, welcoming, genuinely caring.</div></div>
+      <div class="feat"><b>Personalized Care</b><div class="small">Treatments tailored to you.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="container">
+    <div class="sec-head">
+      <div class="badge">Gallery</div>
+      <h2>Recent work</h2>
+    </div>
+    <div class="gallery">
+      <div class="gal">Nail Art</div>
+      <div class="gal" style="background:linear-gradient(135deg,#edd6da,#f5e1b9)">Makeup</div>
+      <div class="gal" style="background:linear-gradient(135deg,#e6d6f0,#f0d8d8)">Hair Styling</div>
+      <div class="gal" style="background:linear-gradient(135deg,#f5d9d9,#e9dabf)">Lash Extensions</div>
+      <div class="gal" style="background:linear-gradient(135deg,#dbede6,#f2dede)">Body Treatments</div>
+      <div class="gal" style="background:linear-gradient(135deg,#f0e1d8,#f5d0d6)">Salon Interior</div>
+    </div>
+    <p class="small muted" style="text-align:center;margin-top:12px">Full Next.js version includes a lightbox, category filters, and real photos.</p>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" class="sec-cream">
+  <div class="container">
+    <div class="sec-head">
+      <div class="badge">Pricing</div>
+      <h2>Transparent, fair</h2>
+      <p class="muted">Starting prices — final quote may vary by length/detail.</p>
+    </div>
+    <div class="grid grid-3" id="pricingCards"></div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="container">
+    <div class="sec-head"><div class="badge">Testimonials</div><h2>Kind words</h2></div>
+    <div class="testi">
+      <div class="avatar"></div>
+      <div class="stars">★★★★★</div>
+      <p style="font-size:18px;margin:12px 0;color:#444">“Flawless gel nails and the most relaxing pedicure in Karachi. Staff is so warm!”</p>
+      <b>Ayesha Khan</b>
+      <p class="small muted" style="margin-top:10px">Zara Ahmed – “My bridal makeup was perfection.” • Mahnoor Ali – “Lash extensions looked so natural. 10/10.”</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="sec-cream">
+  <div class="container contact-grid">
+    <div>
+      <div class="badge">Contact</div>
+      <h2>Visit us</h2>
+      <div style="margin-top:18px;color:#555;line-height:2">
+        📍 W2RW+395, Block H North Nazimabad Town, Karachi, Pakistan<br>
+        📞 021 36647157<br>
+        ✉️ hello@fabiollabeauty.com<br>
+        🕒 Open daily: 10:00 AM – 11:00 PM
+      </div>
+      <div style="margin-top:12px;display:flex;gap:16px;font-size:14px">
+        <a href="https://wa.me/922136647157" target="_blank"><u>WhatsApp</u></a>
+        <a href="#"><u>Instagram</u></a>
+        <a href="#"><u>Facebook</u></a>
+        <a href="#"><u>TikTok</u></a>
+      </div>
+    </div>
+    <div class="map">Google Map embed in full Next.js version</div>
+  </div>
+</section>
+
+<footer>
+  <div class="container foot-grid">
+    <div>
+      <div class="logo" style="color:#fff"><div class="logo-mark">F</div><div>Fabiolla<small style="color:#d7b8b8">BEAUTY PARLOUR</small></div></div>
+      <p style="color:#cbbdb6;margin-top:10px;font-size:14px;max-width:280px">Luxury beauty & wellness in Karachi. Certified experts, premium products, personalized care.</p>
+    </div>
+    <div><b>Quick Links</b><br><br><a href="#about">About</a><br><a href="#services">Services</a><br><a href="#gallery">Gallery</a><br><a href="#pricing">Pricing</a><br><a href="#contact">Contact</a></div>
+    <div><b>Services</b><br><br><span style="color:#cbbdb6;font-size:14px">Manicure · Pedicure · Make-up · Hairstyling · Lashes · Body Treatments · Nail Art</span></div>
+    <div><b>Newsletter</b><p style="color:#cbbdb6;font-size:14px;margin:8px 0">Beauty tips & exclusive offers.</p>
+      <div style="display:flex;gap:8px"><input placeholder="Email address" style="flex:1;padding:10px 14px;border-radius:999px;border:none"><button class="btn btn-rose" style="padding:10px 16px" onclick="alert('Subscribed!')">Join</button></div>
+    </div>
+  </div>
+  <div class="container copy">© 2025 Fabiolla Beauty Parlour. All rights reserved.</div>
+</footer>
+
+<button class="btn btn-rose fab-book" onclick="openBooking()">Book</button>
+
+<!-- BOOKING MODAL -->
+<div class="modal-bg" id="bookingModal">
+  <div class="modal">
+    <div class="modal-head">
+      <div><div class="badge">Booking</div><div class="display" style="font-size:22px">Book your appointment</div></div>
+      <button onclick="closeBooking()" style="background:none;border:none;font-size:22px;cursor:pointer">✕</button>
+    </div>
+    <div class="steps" id="steps"></div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<script>
+const SERVICES=[
+{id:'manicure',name:'Manicure',desc:'Classic nourishing manicure with cuticle care.',dur:45,price:1800,cat:'Nail Services'},
+{id:'pedicure',name:'Pedicure',desc:'Relaxing foot spa with exfoliation.',dur:60,price:2200,cat:'Nail Services'},
+{id:'acrylic-nails',name:'Acrylic Nails',desc:'Elegant acrylic extensions, shaped to perfection.',dur:90,price:4500,cat:'Nail Services'},
+{id:'gel-nails',name:'Gel Nails',desc:'Glossy, long-lasting gel color.',dur:75,price:3500,cat:'Nail Services'},
+{id:'nail-art',name:'Nail Art',desc:'Bespoke nail designs – minimal to glam.',dur:60,price:2500,cat:'Nail Services'},
+{id:'makeup',name:'Make-up Services',desc:'Party / bridal makeup, skin-first.',dur:90,price:6500,cat:'Beauty Services'},
+{id:'eye-lashes',name:'Eye Lashes',desc:'Natural lash lift and curl.',dur:45,price:2000,cat:'Beauty Services'},
+{id:'eye-lashes-tint',name:'Eye Lashes Tint',desc:'Rich tint for fuller-looking lashes.',dur:30,price:1500,cat:'Beauty Services'},
+{id:'lashes-extension',name:'Lashes Extension',desc:'Classic / volume extensions.',dur:120,price:5500,cat:'Beauty Services'},
+{id:'hairstyling',name:'Hairstyling',desc:'Blowouts, waves, updos.',dur:60,price:3000,cat:'Hair'},
+{id:'body-contour',name:'Body Contour',desc:'Firming contour treatment.',dur:75,price:6000,cat:'Body Treatments'},
+{id:'body-polishing',name:'Body Polishing',desc:'Full-body exfoliation + glow.',dur:90,price:5500,cat:'Body Treatments'},
+{id:'hot-stone',name:'Hot Stone Massage',desc:'Deep-relaxing hot stone massage.',dur:60,price:4800,cat:'Body Treatments'},
+];
+const SLOTS=["10:00 AM","10:30 AM","11:00 AM","11:30 AM","12:00 PM","1:00 PM","2:00 PM","3:00 PM","4:00 PM","5:00 PM","6:00 PM","7:00 PM","8:00 PM","9:00 PM","10:00 PM"];
+const PKR = n => 'Rs ' + n.toLocaleString('en-PK');
+
+// render service cards
+function renderCards(){
+  const sc = document.getElementById('serviceCards');
+  const pc = document.getElementById('pricingCards');
+  const html = s => `<div class="card"><div class="icon">✨</div><h3>${s.name}</h3><p class="small muted">${s.desc}</p><div class="price-row"><span>${s.dur} min</span><b>from ${PKR(s.price)}</b></div><button class="book" onclick="openBooking('${s.id}')">Book Now</button></div>`;
+  sc.innerHTML = SERVICES.map(html).join('');
+  pc.innerHTML = SERVICES.map(s=>`<div class="card"><div class="small muted">${s.cat}</div><h3 style="margin-top:4px">${s.name}</h3><p class="small muted" style="min-height:38px">${s.desc}</p><div class="price-row"><span>${s.dur} min</span><b>${PKR(s.price)}</b></div><button class="btn btn-dark" style="width:100%;margin-top:12px" onclick="openBooking('${s.id}')">Book</button></div>`).join('');
+}
+renderCards();
+
+// Booking state
+let step=1, chosenDate='', chosenTime='', chosenService=null, detailsObj=null;
+const storeKey='fabiolla_appointments_v1';
+const getAppts = ()=> { try{return JSON.parse(localStorage.getItem(storeKey)||'[]')}catch{return[]} };
+const saveAppt = a => { const l=getAppts(); l.push(a); localStorage.setItem(storeKey, JSON.stringify(l)) };
+const bookedTimes = d => getAppts().filter(a=>a.date===d && a.status!=='cancelled').map(a=>a.time);
+
+function openBooking(serviceId){
+  document.getElementById('bookingModal').classList.add('open');
+  step=1; chosenDate=''; chosenTime=''; detailsObj=null;
+  chosenService = serviceId ? SERVICES.find(s=>s.id===serviceId) : null;
+  renderStep();
+}
+function closeBooking(){document.getElementById('bookingModal').classList.remove('open')}
+
+function renderStep(){
+  const labels=['Date','Time','Service','Details','Summary'];
+  document.getElementById('steps').innerHTML = labels.map((l,i)=>{
+    const n=i+1, done=step>n, on=step===n;
+    return `<span><span class="step-dot ${done||on?'on':''}">${done?'✓':n}</span>${l}</span>`;
+  }).join(' ⟶ ');
+  const body=document.getElementById('modalBody');
+  if(step===1){
+    const today=new Date().toISOString().slice(0,10);
+    body.innerHTML = `<h2 class="display" style="font-size:30px">Select a date</h2>
+    <p class="muted">Only future dates are bookable.</p>
+    <input type="date" id="dateInp" min="${today}" style="max-width:280px;margin-top:12px">
+    <div style="margin-top:16px"><button class="btn btn-dark" onclick="pickDate()">Continue →</button></div>`;
+  } else if(step===2){
+    const booked = bookedTimes(chosenDate);
+    body.innerHTML = `<h2 class="display" style="font-size:30px">Choose a time</h2>
+    <p class="muted">${chosenDate} · Asia/Karachi</p>
+    <div class="slot-grid">${SLOTS.map(t=>{
+      const isBooked = booked.includes(t);
+      return `<button class="slot ${chosenTime===t?'sel':''} ${isBooked?'booked':''}" ${isBooked?'disabled':''} onclick="pickTime('${t}')">${t}${isBooked?' · Booked':''}</button>`
+    }).join('')}</div>
+    <div style="margin-top:16px;display:flex;gap:10px"><button class="btn btn-ghost" onclick="step=1;renderStep()">Back</button>
+    <button class="btn btn-dark" ${chosenTime?'':'disabled style="opacity:.4"'} onclick="step=3;renderStep()">Continue</button></div>`;
+  } else if(step===3){
+    body.innerHTML = `<h2 class="display" style="font-size:30px">Select your service</h2>
+    <div class="svc-grid">${SERVICES.map(s=>`
+      <div class="svc ${chosenService && chosenService.id===s.id?'sel':''}" onclick="pickService('${s.id}')">
+        <b>${s.name}</b><div class="small muted">${s.desc}</div>
+        <div class="small" style="margin-top:8px">${s.dur} min · from ${PKR(s.price)}</div>
+      </div>`).join('')}</div>
+    <div style="margin-top:16px;display:flex;gap:10px"><button class="btn btn-ghost" onclick="step=2;renderStep()">Back</button>
+    <button class="btn btn-dark" ${chosenService?'':'disabled style="opacity:.4"'} onclick="step=4;renderStep()">Continue</button></div>`;
+  } else if(step===4){
+    body.innerHTML = `<h2 class="display" style="font-size:30px">Your details</h2>
+    <div class="form-grid" style="max-width:560px;margin-top:12px">
+      <div><label>Full Name</label><input id="dn" placeholder="Ayesha Khan"></div>
+      <div class="form-grid two">
+        <div><label>Mobile Number</label><input id="dp" placeholder="+92 3xx xxxxxxx"></div>
+        <div><label>Email Address</label><input id="de" type="email" placeholder="you@email.com"></div>
+      </div>
+      <div><label>Notes (optional)</label><textarea id="dnotes" rows="3" placeholder="Allergies, preferences…"></textarea></div>
+    </div>
+    <div style="margin-top:16px;display:flex;gap:10px"><button class="btn btn-ghost" onclick="step=3;renderStep()">Back</button>
+    <button class="btn btn-dark" onclick="submitDetails()">Review booking</button></div>`;
+  } else if(step===5){
+    body.innerHTML = `<h2 class="display" style="font-size:30px">Booking summary</h2>
+    <div class="summary" style="margin-top:12px">
+      <div><span class="muted">Service</span><b>${chosenService.name}</b></div>
+      <div><span class="muted">Date</span><b>${chosenDate}</b></div>
+      <div><span class="muted">Time</span><b>${chosenTime}</b></div>
+      <div><span class="muted">Customer</span><b>${detailsObj.name}</b></div>
+      <div><span class="muted">Duration</span><b>${chosenService.dur} min</b></div>
+    </div>
+    <div style="margin-top:16px;display:flex;gap:10px"><button class="btn btn-ghost" onclick="step=4;renderStep()">Edit booking</button>
+    <button class="btn btn-rose" onclick="confirmBooking()" id="confirmBtn">Confirm Appointment</button></div>`;
+  }
+}
+function pickDate(){
+  const v=document.getElementById('dateInp').value;
+  if(!v){alert('Pick a date');return}
+  chosenDate=v; chosenTime=''; step=2; renderStep();
+}
+function pickTime(t){ chosenTime=t; renderStep(); }
+function pickService(id){ chosenService=SERVICES.find(s=>s.id===id); renderStep(); }
+function submitDetails(){
+  const name=document.getElementById('dn').value.trim();
+  const phone=document.getElementById('dp').value.trim();
+  const email=document.getElementById('de').value.trim();
+  if(name.length<2||phone.length<10||!email.includes('@')){alert('Please fill name, phone, and a valid email.');return}
+  detailsObj={name,phone,email,notes:document.getElementById('dnotes').value.trim()};
+  step=5; renderStep();
+}
+function confirmBooking(){
+  const btn=document.getElementById('confirmBtn'); btn.textContent='Confirming…'; btn.disabled=true;
+  setTimeout(()=>{
+    const appts=getAppts();
+    if(appts.some(a=>a.date===chosenDate && a.time===chosenTime)){ alert('Sorry, that slot was just booked. Pick another time.'); btn.textContent='Confirm Appointment'; btn.disabled=false; return; }
+    const ref='FB-'+Math.random().toString(36).slice(2,8).toUpperCase();
+    const appt={id:ref,date:chosenDate,time:chosenTime,service:chosenService.name,customer:detailsObj.name,phone:detailsObj.phone,email:detailsObj.email,status:'confirmed'};
+    saveAppt(appt);
+    document.getElementById('modalBody').innerHTML = `<div style="text-align:center;padding:18px">
+      <div style="width:64px;height:64px;border-radius:50%;background:#e6f6e8;color:#1a7a2e;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-size:26px">✓</div>
+      <h2 class="display" style="font-size:32px">Your appointment is booked!</h2>
+      <p class="muted">Booking ref: <b>${ref}</b></p>
+      <p style="margin-top:8px">${chosenService.name} · ${chosenDate} at ${chosenTime}</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:18px">
+        <a class="btn btn-ghost" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent('Fabiolla Beauty - '+chosenService.name)}&dates=${chosenDate.replace(/-/g,'')}T100000/${chosenDate.replace(/-/g,'')}T110000" target="_blank">Add to Google Calendar</a>
+        <button class="btn btn-ghost" onclick="downloadConf('${ref}')">Download confirmation</button>
+        <a class="btn btn-rose" style="background:#16a34a" target="_blank" href="https://wa.me/922136647157?text=${encodeURIComponent('Hi Fabiolla! I just booked '+chosenService.name+' on '+chosenDate+' at '+chosenTime+'. Ref '+ref)}">WhatsApp confirmation</a>
+      </div>
+      <p class="small muted" style="margin-top:14px">A confirmation email will be sent to ${detailsObj.email}.</p>
+      <button class="btn btn-dark" style="margin-top:16px" onclick="closeBooking()">Done</button>
+      </div>`;
+    document.getElementById('steps').innerHTML = '<b style="color:var(--rose)">✓ Booking confirmed</b>';
+  }, 650);
+}
+function downloadConf(ref){
+  const txt = `Fabiolla Beauty Parlour\nBooking ${ref}\n${chosenService.name}\n${chosenDate} ${chosenTime}\n${detailsObj.name}`;
+  const blob=new Blob([txt],{type:'text/plain'}); const url=URL.createObjectURL(blob);
+  const a=document.createElement('a'); a.href=url; a.download=`fabiolla-confirmation-${ref}.txt`; a.click(); URL.revokeObjectURL(url);
+}
+</script>
+</body>
+</html>
